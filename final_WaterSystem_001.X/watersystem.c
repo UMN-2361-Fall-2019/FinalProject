@@ -1,10 +1,8 @@
-/*
- * File:   watersystem.c
- * Author: rfolk
+/**
+ * \file	C:\Source\FinalProject\final_WaterSystem_001.X\watersystem.c.
  *
- * Created on November 28, 2019, 2:36 PM
+ * \brief	Watersystem class
  */
-
 
 #include "xc.h"
 #include "display.h"
@@ -17,10 +15,32 @@
 
 loggerCallback loggerFunction = NULL;
 
+/**
+ * \fn	void LogMessage(char* message)
+ *
+ * \brief	Logs a message
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \param [in,out]	message	If non-null, the message.
+ */
+
 void LogMessage(char* message)
 {
     LOGMESSAGE(loggerFunction, message);
 }
+
+/**
+ * \fn	int initWaterSystem(void)
+ *
+ * \brief	Initializes the water system
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \return	An int.
+ */
 
 int initWaterSystem(void) {
     // loggerCallback loggerFunction = NULL;
@@ -47,8 +67,17 @@ int initWaterSystem(void) {
     return retVal;
 }
 
-// This is the eternal pump for the Watersystem, 
-// can be used for the eternal loop
+/**
+ * \fn	int ProcessMessages()
+ *
+ * \brief	This is the eternal pump for the Watersystem, can be used for the eternal loop
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \return	An int.
+ */
+
 int ProcessMessages(){
     processMotorMessages();
     processSensorMessages();

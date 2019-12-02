@@ -1,10 +1,8 @@
-/*
- * File:   main.c
- * Author: rfolk
+/**
+ * \file	C:\Source\FinalProject\final_WaterSystem_001.X\main.c.
  *
- * Created on November 28, 2019, 2:18 PM
+ * \brief	Main class
  */
-
 
 #include "xc.h"
 #include "defs.h"
@@ -24,6 +22,15 @@
                                 // Fail-Safe Clock Monitor is enabled)
 #pragma config FNOSC = FRCPLL // Oscillator Select (Fast RC Oscillator with PLL module (FRCPLL))
 
+/**
+ * \fn	void setup(void)
+ *
+ * \brief	Setups this object
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ */
+
 void setup(void){
     CLKDIVbits.RCDIV = 0;
  
@@ -33,6 +40,18 @@ void setup(void){
 
     initWaterSystem();
 }
+
+/**
+ * \fn	int main(void)
+ *
+ * \brief	Main entry-point for this application
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \return	Exit-code for the process - 0 for success, else an error code.
+ */
+
 int main(void) {
     setup();
     while(ProcessMessages());

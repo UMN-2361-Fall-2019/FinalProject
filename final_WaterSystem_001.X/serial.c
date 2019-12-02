@@ -1,24 +1,59 @@
-/*
- * File:   serial.c
- * Author: rfolk
+/**
+ * \file	C:\Source\FinalProject\final_WaterSystem_001.X\serial.c.
  *
- * Created on November 28, 2019, 2:34 PM
+ * \brief	Serial class
  */
 
-
 #include "xc.h"
+
+/**
+ * \fn	static int putChar(int c)
+ *
+ * \brief	Puts a character
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \param	c	An int to process.
+ *
+ * \return	An int.
+ */
+
 static int putChar(int c){
     // while(U1CTS);
     while(U1STAbits.UTXBF);
     U1TXREG = c;
     return c;
 }
+
+/**
+ * \fn	static void Log(char* message)
+ *
+ * \brief	Logs the given message
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \param [in,out]	message	If non-null, the message.
+ */
+
 static void Log(char* message){
     // Push string into log buffer for transmit
     while(putChar(*message++));
     putChar('\r');
     putChar('\n');
 }
+
+/**
+ * \fn	int initSerial(void)
+ *
+ * \brief	Initializes the serial
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \return	An int.
+ */
 
 int initSerial(void) {
     U1BRG=103; //Set Baudrate - set for 9600
@@ -41,11 +76,33 @@ int initSerial(void) {
     return 1;
 }
 
+/**
+ * \fn	void* getLogger(void)
+ *
+ * \brief	Gets the logger
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \return	Null if it fails, else the logger.
+ */
+
 void* getLogger(void){
     return (void*)Log;
 }
 
+/**
+ * \fn	int processSerialMessages()
+ *
+ * \brief	Process the serial messages
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \return	An int.
+ */
+
 int processSerialMessages(){
-    
+    // Nothing to do here
     return 1;
 }

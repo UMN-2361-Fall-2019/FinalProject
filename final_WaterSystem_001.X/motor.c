@@ -18,12 +18,37 @@ loggerCallback motorLogger = NULL;
 #define MOTORSPEED (motorSpeed*motorStep)
 
 // Private functions
+
+/**
+ * \fn	void LogMotorMessage(char* message)
+ *
+ * \brief	Logs motor message
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \param [in,out]	message	If non-null, the message.
+ */
+
 void LogMotorMessage(char* message)
 {
     LOGMESSAGE(motorLogger, message);
 }
 
 // Public Functions
+
+/**
+ * \fn	int initMotor(loggerCallback logger)
+ *
+ * \brief	Initializes the motor
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \param	logger	The logger.
+ *
+ * \return	An int.
+ */
 
 int initMotor(loggerCallback logger) {
     motorLogger = logger;
@@ -46,28 +71,88 @@ int initMotor(loggerCallback logger) {
     return 1;
 }
 
+/**
+ * \fn	void motorOn()
+ *
+ * \brief	Turn motor on
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ */
+
 void motorOn(){
     // Enable interrupt for PWM
     // OC1RS= MOTORSPEED;  
     IEC0bits.T3IE = 1;
 }
 
+/**
+ * \fn	void motorOff()
+ *
+ * \brief	Turn motor off
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ */
+
 void motorOff(){
     // Disable interrupt for PWM
     IEC0bits.T3IE = 0;
 }
 
+/**
+ * \fn	void setMotorHigh()
+ *
+ * \brief	Sets motor high
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ */
+
 void setMotorHigh(){
     motorSpeed = 10;
 }
+
+/**
+ * \fn	void setMotorLow()
+ *
+ * \brief	Sets motor low
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ */
 
 void setMotorLow(){
     motorSpeed = 3;
 }
 
+/**
+ * \fn	int getMotorSpeed()
+ *
+ * \brief	Gets motor speed
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \return	The motor speed.
+ */
+
 int getMotorSpeed(){
     return motorSpeed;
 }
+
+/**
+ * \fn	int setMotorSpeed(int newSpeed)
+ *
+ * \brief	Sets motor speed
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \param	newSpeed	The new speed.
+ *
+ * \return	An int.
+ */
 
 int setMotorSpeed(int newSpeed){
     if(newSpeed <0)
@@ -78,6 +163,17 @@ int setMotorSpeed(int newSpeed){
         motorSpeed = newSpeed;
     return motorSpeed; // returns actual speed set
 }
+
+/**
+ * \fn	int processMotorMessages()
+ *
+ * \brief	Process the motor messages
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \return	An int.
+ */
 
 int processMotorMessages(){
     char output[50];
@@ -90,6 +186,15 @@ int processMotorMessages(){
     
     return 1;
 }
+
+/**
+ * \fn	void __attribute__ _T3Interrupt(void)
+ *
+ * \brief	Timer 3 interrupt
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ */
 
 void __attribute__((__interrupt__, __auto_psv__)) _T3Interrupt(void)
 {

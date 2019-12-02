@@ -12,7 +12,7 @@
  *
  * \brief	Delays processing.
  *
- * \author	Darnell Otterson
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
  * \date	11/6/2019
  *
  * \remarks

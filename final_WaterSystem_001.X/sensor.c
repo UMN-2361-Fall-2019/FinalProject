@@ -1,10 +1,8 @@
-/*
- * File:   LM393.c
- * Author: rfolk
+/**
+ * \file	C:\Source\FinalProject\final_WaterSystem_001.X\sensor.c.
  *
- * Created on November 28, 2019, 2:21 PM
+ * \brief	Sensor class
  */
-
 
 #include "xc.h"
 #include <stdio.h>
@@ -19,10 +17,31 @@ loggerCallback sensorLogger = NULL;
 
 
 // Private functions
+
+/**
+ * \fn	void LogSensorMessage(char* message)
+ *
+ * \brief	Logs sensor message
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \param [in,out]	message	If non-null, the message.
+ */
+
 void LogSensorMessage(char* message)
 {
     LOGMESSAGE(sensorLogger, message);
 }
+
+/**
+ * \fn	void __attribute__ _ADC1Interrupt(void)
+ *
+ * \brief	ADC 1 interrupt
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ */
 
 void __attribute__((__interrupt__, __auto_psv__)) _ADC1Interrupt(void) {
     putVal(ADC1BUF0);
@@ -33,6 +52,18 @@ void __attribute__((__interrupt__, __auto_psv__)) _ADC1Interrupt(void) {
 
 // Public Functions
 
+/**
+ * \fn	void setThresholds(int low, int high)
+ *
+ * \brief	Sets the thresholds
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \param	low 	The low.
+ * \param	high	The high.
+ */
+
 void setThresholds(int low, int high){
     char output[50];
     lowThreshold = low;
@@ -42,16 +73,52 @@ void setThresholds(int low, int high){
     LogSensorMessage(output);
 }
 
+/**
+ * \fn	int getLowThreshold()
+ *
+ * \brief	Gets low threshold
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \return	The low threshold.
+ */
+
 int getLowThreshold(){
     return lowThreshold;
 }
+
+/**
+ * \fn	int getHighThreshold()
+ *
+ * \brief	Gets high threshold
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \return	The high threshold.
+ */
 
 int getHighThreshold(){
     return highTHreshold;
 }
 
+/**
+ * \fn	int initSensor(loggerCallback logger)
+ *
+ * \brief	Initializes the sensor
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \param	logger	The logger.
+ *
+ * \return	An int.
+ */
+
 int initSensor(loggerCallback logger){
     sensorLogger = logger;
+	initBuffer(); // Initialize the buffer here
     AD1CON1 = 0;    // use default settings, AND turn off A/D for now
     AD1CON1bits.SSRC = 0b010;  // timer 3 rollover stops sampling, starts conversion
     AD1CON1bits.ASAM = 1; // auto-sample
@@ -86,7 +153,18 @@ int initSensor(loggerCallback logger){
     return 1;
 }
 
+/**
+ * \fn	int processSensorMessages()
+ *
+ * \brief	Process the sensor messages
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \return	An int.
+ */
+
 int processSensorMessages(){
-    
+    // Nothing to do here
     return 1;
 }

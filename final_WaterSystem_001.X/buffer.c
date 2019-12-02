@@ -1,8 +1,8 @@
-/**********************************************************************************************//**
- * \file	D:\source\UMN\EE2361\Labs\otter_lab6_v001.X\otter_buffer.c.
+/**
+ * \file	C:\Source\FinalProject\final_WaterSystem_001.X\buffer.c.
  *
- * \brief	Otter buffer class
- **************************************************************************************************/
+ * \brief	Buffer class
+ */
 
 #include <stddef.h>
 
@@ -19,11 +19,22 @@ int buffSize = 0;
  *
  * \brief	Puts a value
  *
- * \author	Darnell Otterson
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
  * \date	11/17/2019
  *
  * \param	newValue	The new value.
  **************************************************************************************************/
+
+/**
+ * \fn	void putVal(int newValue)
+ *
+ * \brief	Puts a value
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \param	newValue	The new value.
+ */
 
 void putVal(int newValue)
 {
@@ -39,11 +50,22 @@ void putVal(int newValue)
  *
  * \brief	Puts the vals
  *
- * \author	Darnell Otterson
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
  * \date	11/17/2019
  *
  * \param	newValues	The new values.
  **************************************************************************************************/
+
+/**
+ * \fn	void putVals(int newValues[4])
+ *
+ * \brief	Puts the vals
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \param	newValues	The new values.
+ */
 
 void putVals(int newValues[4])
 {
@@ -60,11 +82,22 @@ void putVals(int newValues[4])
  *
  * \brief	Gets the average
  *
- * \author	Darnell Otterson
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
  * \date	11/17/2019
  *
  * \returns	The calculated average.
  **************************************************************************************************/
+
+/**
+ * \fn	int getAvg()
+ *
+ * \brief	Gets the average
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \return	The calculated average.
+ */
 
 int getAvg()
 {
@@ -94,11 +127,22 @@ int getAvg()
  *
  * \brief	Gets the count
  *
- * \author	Darnell Otterson
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
  * \date	11/17/2019
  *
  * \returns	The count.
  **************************************************************************************************/
+
+/**
+ * \fn	int getCount()
+ *
+ * \brief	Gets the count
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ *
+ * \return	The count.
+ */
 
 int getCount()
 {
@@ -110,9 +154,18 @@ int getCount()
  *
  * \brief	Initializes the buffer
  *
- * \author	Darnell Otterson
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
  * \date	11/17/2019
  **************************************************************************************************/
+
+/**
+ * \fn	void initBuffer()
+ *
+ * \brief	Initializes the buffer
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/1/2019
+ */
 
 void initBuffer()
 {
