@@ -65,6 +65,7 @@
 // live documentation
 
 int initWaterSystem(void);
+int ProcessMessages();
 
 #ifdef	__cplusplus
 extern "C" {

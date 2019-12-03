@@ -51,14 +51,20 @@ void LogMotorMessage(char* message)
  */
 
 int initMotor(loggerCallback logger) {
+    // Should figure out a way to pragma the output capture here
+    // Also need to add the TRISB
     motorLogger = logger;
+    TRISB &= 0xff7f; // bit 15 is an output
+    
+    __builtin_write_OSCCONL(OSCCON & 0xbf); // unlock PPS
+    RPOR3bits.RP6R = 18; // Use Pin RP6 for Output Compare 1 = "18" (Table 10-3)
+    __builtin_write_OSCCONL(OSCCON | 0x40); // lock   PPS
+
     T3CONbits.TON = 0; // Turn off Timer 3
     T3CON = 0x10; // 0x00; //8010; // Set default pr multiplier to 1:8
     PR3 = 40000-1; // Set the servo time
     TMR3 = 0x00; //Clear contents of the timer register
     IPC2bits.T3IP = 5; // set TNR3 interrupt priority
-    IFS0bits.T3IF = 0; // clear the interrupt flag
-    IEC0bits.T3IE = 1; //Enable Timer3 interrupts
 
     // Timer 3 setup should happen before this line
     motorStep = PR3/10;
@@ -66,6 +72,9 @@ int initMotor(loggerCallback logger) {
     OC1RS = MOTORSPEED; // We will only change this once PWM is turned on
     OC1CONbits.OCTSEL = 1; // Use Timer 3 for compare source
     OC1CONbits.OCM = 0b110; // Output compare PWM w/o faults
+
+    IFS0bits.T3IF = 0; // clear the interrupt flag
+    IEC0bits.T3IE = 1; //Enable Timer3 interrupts
     T3CONbits.TON = 1; // Enable timer 3 and get this started
 
     return 1;
