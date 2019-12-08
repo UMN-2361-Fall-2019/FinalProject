@@ -65,12 +65,12 @@
 // live documentation
 int initMotor(loggerCallback logger);
 int processMotorMessages();
-int setMotorSpeed(int newSpeed);
-int getMotorSpeed();
-void setMotorLow();
-void setMotorHigh();
-void motorOff();
-void motorOn();
+//int setMotorSpeed(int newSpeed);
+//int getMotorSpeed();
+//void setMotorLow();
+//void setMotorHigh();
+//void motorOff();
+//void motorOn();
 
 #ifdef	__cplusplus
 extern "C" {

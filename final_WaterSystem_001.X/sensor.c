@@ -10,8 +10,8 @@
 #include "defs.h"
 #include "buffer.h"
 
-int lowThreshold = 3;
-int highTHreshold = 8;
+int lowThreshold = 6;
+int highTHreshold = 9;
 
 loggerCallback sensorLogger = NULL;
 
@@ -147,7 +147,9 @@ int initSensor(loggerCallback logger){
     AD1CON1bits.ADON = 1; // turn on module
     
     AD1CHS = 0;
-    AD1CHSbits.CH0SA = 0; //// channel selected is channel 0 (doesn't matter for scan)
+    AD1CHSbits.CH0SA = 0;   // channel selected is channel 0 (doesn't matter for scan)
+    _AD1IF = 0;             //Reset Flag
+    _AD1IE = 1;             //Enable Interrupt for ADC
 
 
     return 1;

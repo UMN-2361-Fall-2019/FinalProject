@@ -50,9 +50,9 @@ int initWaterSystem(void) {
         loggerFunction = (loggerCallback)getLogger();
     }
     LogMessage("Initializing Sensor");
-    retVal |= initSensor(loggerFunction)<<1;
+    retVal |= initSensor(loggerFunction)    <<  1;
     LogMessage("Initializing Motor control");
-    retVal |= initMotor(loggerFunction)<<2;
+    retVal |= initMotor(loggerFunction) <<  2;
     LogMessage("Initializing Display");
     retVal |= initDisplay(loggerFunction) << 3;
     if(retVal == 0b1111){

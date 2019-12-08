@@ -8,11 +8,12 @@
 
 #include "xc.h"
 #include "buffer.h"
-#define BUFFER_SIZE 1024
+#define BUFFER_SIZE 100
 
 volatile int theBuffer[BUFFER_SIZE];
 volatile int bufferFront;
 int buffSize = 0;
+int state = 0;
 
 /**********************************************************************************************//**
  * \fn	void putVal(int newValue)
@@ -157,7 +158,13 @@ int getCount()
  * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
  * \date	11/17/2019
  **************************************************************************************************/
+int getState(void){
+    return state;
+}
 
+void setState(int level){
+    state = level;
+}
 /**
  * \fn	void initBuffer()
  *

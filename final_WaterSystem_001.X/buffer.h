@@ -11,6 +11,8 @@ void putVal(int newValue); // add a new value to the buffer
 int getAvg(); // average all buffer vals
 int getCount();
 void initBuffer(); // set all buffer vals to zero
+int getState(void);
+void setState(int level);
 
 // TODO Insert appropriate #include <>
 

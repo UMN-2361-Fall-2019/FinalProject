@@ -89,13 +89,8 @@ void lcd_cmd(char command)
  */
 
 void lcd_init(void)
-{   AD1PCFG &= 0x9FFE;
-    TRISA |= 0x0001;
-    I2C2BRG = 157;
-    I2C2CONbits.I2CEN = 1;
-    _I2CSIDL = 0;
-    IFS3bits.MI2C2IF=0;
-
+{   
+    
     Delay(50);
     lcd_cmd(0b00111000); // function set, normal instruction mode
     lcd_cmd(0b00111001); // function set, extended instruction mode
@@ -251,13 +246,18 @@ void lcd_printStr(const char *s)
 
 int initDisplay(loggerCallback logger) {
     displayLogger = logger;
-    T2CONbits.TON = 1;
-    IEC0bits.T2IE = 1; // enable interrupt on T2 completion
-    IFS0bits.T2IF = 0;
     T2CON = 0;
     TMR2 = 0;
     T2CONbits.TCKPS = 0b10;
-    PR2 = 300;    
+    PR2 = 300;//24999;  // 1 second
+    //25000 
+    // Configure Timer 2 for display every 100 milliseconds
+    // 1/((62.5*(10^(-9)))*256) = 62500 using 256 prescaler
+ 
+    T2CONbits.TON = 1;
+    IEC0bits.T2IE = 1; // enable interrupt on T2 completion
+    IFS0bits.T2IF = 0;
+    
     lcd_init();
     return 1;
 }
@@ -291,25 +291,27 @@ int processDisplayMessages(){
          lcd_setCursor(1, 0);   
          lcd_printStr(" DRY   ");
          logDisplayMessage("DRY");
+         setState(0);
          //setServo(1000);//maxinum left 90
          //delay(10000);
          //setServo(3000);
      }   
-     else if((number<=8)&&(number>4))
-     {
-
-         lcd_setCursor(1, 0);
-         lcd_printStr("NORMAL  ");
-         logDisplayMessage("NORMAL");
-
-      //   delay(10000);
-        // setServo(3000); 
-     }
-     else if((number<=4)&&(number>=0))
+//     else if((number<=8)&&(number>5))
+//     {
+//
+//         lcd_setCursor(1, 0);
+//         lcd_printStr("NORMAL  ");
+//         logDisplayMessage("NORMAL");
+//
+//      //   delay(10000);
+//        // setServo(3000); 
+//     }
+     else if((number<=7)&&(number>=0))
      {
          lcd_setCursor(1, 0);
          lcd_printStr(" WET   ");
          logDisplayMessage("WET");
+         setState(1);
      }    
      _T2IF=0;
      }
