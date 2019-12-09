@@ -1,3 +1,4 @@
 build/default/production/motor.o:  \
 motor.c  \
-defs.h 
+defs.h  \
+buffer.h 

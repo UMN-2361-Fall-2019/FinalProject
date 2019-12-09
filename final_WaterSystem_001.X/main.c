@@ -33,15 +33,9 @@
 
 void setup(void){
     CLKDIVbits.RCDIV = 0;
- 
     AD1PCFG = 0x9ffe; //all digital inputs and outputs
-    TRISA |= 0x0001;
-    
-    I2C2BRG = 157;
-    I2C2CONbits.I2CEN = 1;
-    _I2CSIDL = 0;
-    IFS3bits.MI2C2IF=0;
-
+    TRISA = 0x0001;
+ 
     initWaterSystem();
 }
 

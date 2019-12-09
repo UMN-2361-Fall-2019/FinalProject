@@ -246,6 +246,16 @@ void lcd_printStr(const char *s)
 
 int initDisplay(loggerCallback logger) {
     displayLogger = logger;
+
+    AD1PCFG &= 0x9ffe; //all digital inputs and outputs
+    TRISA |= 0x0001;
+    
+    I2C2BRG = 157;
+    I2C2CONbits.I2CEN = 1;
+    _I2CSIDL = 0;
+    IFS3bits.MI2C2IF=0;
+
+
     T2CON = 0;
     TMR2 = 0;
     T2CONbits.TCKPS = 0b10;
