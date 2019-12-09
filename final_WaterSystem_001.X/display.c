@@ -56,8 +56,8 @@ void __attribute__((__interrupt__, __auto_psv__)) _T2Interrupt(void) {
 
 void lcd_cmd(char command)
 {
-    I2C2CONbits.SEN = 1;  ///star////Initiate Start condition
-    while(I2C2CONbits.SEN);   //wait// SEN will clear when Start Bit is complete
+    I2C2CONbits.SEN = 1;  // Initiate Start condition
+    while(I2C2CONbits.SEN);   // SEN will clear when Start Bit is complete
     IFS3bits.MI2C2IF=0;  // Set when an I2C action is complete
     
     I2C2TRN= 0b01111100;// 8-bits consisting of the slave address and the R/nW bit
@@ -145,7 +145,7 @@ void lcd_setCursor(char x, char y) {
 
 void lcd_printChar(char myChar) 
 {
-    I2C2CONbits.SEN = 1;  ///star////<Initiate Start condition>
+    I2C2CONbits.SEN = 1;  // <Initiate Start condition>
     while(I2C2CONbits.SEN);   //wait// SEN will clear when Start Bit is complete
     IFS3bits.MI2C2IF=0;  // Set when an I2C action is complete
     I2C2TRN= 0b01111100;// 8-bits consisting of the slave address and the R/nW bit
@@ -178,25 +178,22 @@ void lcd_printChar(char myChar)
  */
 
 void lcd_printStr(const char *s) 
-{   ///https://stackoverflow.com/questions/17131863/passing-string-to-a-function-in-c-with-or-without-pointers
+{
     
     int counter_FOR_size_minus_1;
-    int sizeSTRING = strlen(s);//SIZEOF()//It takes the size of the string "s"
+    int sizeSTRING = strlen(s); // It takes the size of the string "s"
     
-    I2C2CONbits.SEN = 1;  ///star////<Initiate Start condition>
-    while(I2C2CONbits.SEN);   //wait// SEN will clear when Start Bit is complete
+    I2C2CONbits.SEN = 1;  // Initiate Start condition
+    while(I2C2CONbits.SEN);   // SEN will clear when Start Bit is complete
     IFS3bits.MI2C2IF=0;  // Set when an I2C action is complete
   
     
-    I2C2TRN= 0b01111100;// 8-bits consisting of the slave address and the R/nW bit
-                        //I2C2TRN = <slave_chip_addr><R/nW>
-    while(!IFS3bits.MI2C2IF);   //wait for ACK;
-    IFS3bits.MI2C2IF=0;// Set when an I2C action is complete  
-    
-    
-    
-    /////////////<///////////////////////
-    //All the bits of the string, beside the last one
+    I2C2TRN= 0b01111100; // 8-bits consisting of the slave address and the R/nW bit
+
+	while(!IFS3bits.MI2C2IF);   // wait for ACK;
+    IFS3bits.MI2C2IF=0; // Set when an I2C action is complete  
+
+    // All the bits of the string, beside the last one
     for ( counter_FOR_size_minus_1 = 0; counter_FOR_size_minus_1 < sizeSTRING - 1; counter_FOR_size_minus_1++) //
     {
     I2C2TRN = 0b11000000;  // 8-bits consisting of control byte /w RS=1 <CO=1 RS=1>
@@ -209,8 +206,6 @@ void lcd_printStr(const char *s)
     while(!IFS3bits.MI2C2IF);   //wait for ACK;
     IFS3bits.MI2C2IF=0;// Set when an I2C action is complete<0 NO complite>
     }
-    ///////////////////////////////////////////
-    
     
     //For the last bit of the string  
     I2C2TRN = 0b01000000;  // 8-bits consisting of control byte /w RS=1 <CO=0 RS=1>
@@ -221,15 +216,10 @@ void lcd_printStr(const char *s)
                      //I2C2TRN = <data_for_slave>
     while(!IFS3bits.MI2C2IF);   //wait for ACK;
     IFS3bits.MI2C2IF=0;// Set when an I2C action is complete
-    //////////////////////////////// 
     
-    
-   
-    
-    I2C2CONbits.PEN = 1;  //Send Sto(P) sequence //PEN = 0;  
-    while(I2C2CONbits.PEN);//wait  //// PEN will clear when Stop bit is complete*/
-/////////////////////////////////////////////////
-}//*/
+    I2C2CONbits.PEN = 1;  //Send Sto(P) sequence PEN = 0;  
+    while(I2C2CONbits.PEN);// PEN will clear when Stop bit is complete
+}
 
 /**
  * \fn	int initDisplay(loggerCallback logger)
@@ -302,20 +292,7 @@ int processDisplayMessages(){
          lcd_printStr(" DRY   ");
          logDisplayMessage("DRY");
          setState(0);
-         //setServo(1000);//maxinum left 90
-         //delay(10000);
-         //setServo(3000);
      }   
-//     else if((number<=8)&&(number>5))
-//     {
-//
-//         lcd_setCursor(1, 0);
-//         lcd_printStr("NORMAL  ");
-//         logDisplayMessage("NORMAL");
-//
-//      //   delay(10000);
-//        // setServo(3000); 
-//     }
      else if((number<=7)&&(number>=0))
      {
          lcd_setCursor(1, 0);
@@ -328,4 +305,3 @@ int processDisplayMessages(){
 
     return 1;
 }
-

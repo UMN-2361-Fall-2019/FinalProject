@@ -10,21 +10,14 @@
 #include "buffer.h"
 #define BUFFER_SIZE 100
 
+/** \brief	the buffer[ buffer size] */
 volatile int theBuffer[BUFFER_SIZE];
+/** \brief	The buffer front */
 volatile int bufferFront;
+/** \brief	Size of the buffer */
 int buffSize = 0;
+/** \brief	The state */
 int state = 0;
-
-/**********************************************************************************************//**
- * \fn	void putVal(int newValue)
- *
- * \brief	Puts a value
- *
- * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
- * \date	11/17/2019
- *
- * \param	newValue	The new value.
- **************************************************************************************************/
 
 /**
  * \fn	void putVal(int newValue)
@@ -45,49 +38,6 @@ void putVal(int newValue)
     if(buffSize < BUFFER_SIZE)
         buffSize++;
 }
-
-/**********************************************************************************************//**
- * \fn	void putVals(int newValues[4])
- *
- * \brief	Puts the vals
- *
- * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
- * \date	11/17/2019
- *
- * \param	newValues	The new values.
- **************************************************************************************************/
-
-/**
- * \fn	void putVals(int newValues[4])
- *
- * \brief	Puts the vals
- *
- * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
- * \date	12/1/2019
- *
- * \param	newValues	The new values.
- */
-
-void putVals(int newValues[4])
-{
-    theBuffer[bufferFront++] = newValues[0];
-    theBuffer[bufferFront++] = newValues[1];
-    theBuffer[bufferFront++] = newValues[2];
-    theBuffer[bufferFront++] = newValues[3];
-    if(bufferFront == BUFFER_SIZE)
-        bufferFront = 0;    
-}
-
-/**********************************************************************************************//**
- * \fn	int getAvg()
- *
- * \brief	Gets the average
- *
- * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
- * \date	11/17/2019
- *
- * \returns	The calculated average.
- **************************************************************************************************/
 
 /**
  * \fn	int getAvg()
@@ -123,17 +73,6 @@ int getAvg()
     
 }
 
-/**********************************************************************************************//**
- * \fn	int getCount()
- *
- * \brief	Gets the count
- *
- * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
- * \date	11/17/2019
- *
- * \returns	The count.
- **************************************************************************************************/
-
 /**
  * \fn	int getCount()
  *
@@ -150,21 +89,36 @@ int getCount()
     return buffSize;
 }
 
-/**********************************************************************************************//**
- * \fn	void initBuffer()
+/**
+ * \fn	int getState(void)
  *
- * \brief	Initializes the buffer
+ * \brief	Gets the state
  *
  * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
- * \date	11/17/2019
- **************************************************************************************************/
+ * \date	12/8/2019
+ *
+ * \return	The state.
+ */
+
 int getState(void){
     return state;
 }
 
+/**
+ * \fn	void setState(int level)
+ *
+ * \brief	Sets a state
+ *
+ * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
+ * \date	12/8/2019
+ *
+ * \param	level	The level.
+ */
+
 void setState(int level){
     state = level;
 }
+
 /**
  * \fn	void initBuffer()
  *

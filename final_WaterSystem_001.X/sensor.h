@@ -64,9 +64,6 @@
 // TODO Insert declarations or function prototypes (right here) to leverage 
 // live documentation
 int initSensor(loggerCallback logger);
-int getLowThreshold();
-int getHighThreshold();
-void setThresholds(int low, int high);
 int processSensorMessages();
 
 #ifdef	__cplusplus

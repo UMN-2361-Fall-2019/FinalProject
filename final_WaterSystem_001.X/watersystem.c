@@ -43,7 +43,6 @@ void LogMessage(char* message)
  */
 
 int initWaterSystem(void) {
-    // loggerCallback loggerFunction = NULL;
     int retVal = 0;
     retVal = initSerial();
     if(retVal != 0){

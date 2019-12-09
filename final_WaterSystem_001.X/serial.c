@@ -94,7 +94,7 @@ void* getLogger(void){
 /**
  * \fn	int processSerialMessages()
  *
- * \brief	Process the serial messages
+ * \brief	Process the serial messages - Nothing to do here
  *
  * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
  * \date	12/1/2019

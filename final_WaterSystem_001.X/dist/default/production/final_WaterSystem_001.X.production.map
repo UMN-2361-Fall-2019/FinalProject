@@ -89,7 +89,7 @@ c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(funpack
 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(strlen.XX_eo)
                               build/default/production/display.o (_strlen)
 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(sprintf_cdnopuxX.XXeo)
-                              build/default/production/sensor.o (__sprintf_cdnopuxX)
+                              build/default/production/watersystem.o (__sprintf_cdnopuxX)
 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xprintf_cdnopuxX.XXeo)
                               c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(sprintf_cdnopuxX.XXeo) (___Printf_cdnopuxX)
 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xputfld_cdnopuxX.XXeo)
@@ -185,12 +185,12 @@ Default Scalar Model: Small
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200              0x18ca          0x252f  (9519)
-.const                      0x1aca                0xfe           0x17d  (381)
-.text                       0x1bc8               0x50c           0x792  (1938)
-.dinit                      0x20d4                0xb8           0x114  (276)
-.text                       0x218c               0x1de           0x2cd  (717)
+.const                      0x1aca                0xd8           0x144  (324)
+.text                       0x1ba2               0x460           0x690  (1680)
+.dinit                      0x2002                0xb8           0x114  (276)
+.text                       0x20ba               0x1a6           0x279  (633)
 
-                 Total "program" memory used (bytes):         0x321f  (12831) 19%
+                 Total "program" memory used (bytes):         0x3090  (12432) 19%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
@@ -262,9 +262,9 @@ External Symbols in Program Memory (by address):
                   0x000322                  __DefaultInterrupt
                   0x000328                  ___divsf3
                   0x0003ac                  ___divsi3
-                  0x0003ca                  ___ltsf2
                   0x0003ca                  ___lesf2
                   0x0003ca                  ___eqsf2
+                  0x0003ca                  ___ltsf2
                   0x0003ce                  ___gtsf2
                   0x0003ce                  ___gesf2
                   0x0003d2                  ___floatsisf
@@ -281,15 +281,15 @@ External Symbols in Program Memory (by address):
                   0x000590                  __funpack
                   0x0005ba                  _strlen
                   0x0005c6                  sprintf_cdfFnopuxX.XXeo:_prout
-                  0x0005d4                  __sprintf_fF
                   0x0005d4                  __sprintf_cdnopuxX
                   0x0005d4                  __sprintf_cdfFnopuxX
+                  0x0005d4                  __sprintf_fF
                   0x0005f2                  ___Printf_fF
-                  0x0005f2                  ___Printf_cdfFnopuxX
                   0x0005f2                  ___Printf_cdnopuxX
+                  0x0005f2                  ___Printf_cdfFnopuxX
+                  0x000756                  ___Putfld_cdnopuxX
                   0x000756                  ___Putfld_cdfFnopuxX
                   0x000756                  ___Putfld_fF
-                  0x000756                  ___Putfld_cdnopuxX
                   0x0009fc                  ___Ldtob_fF
                   0x0009fc                  ___Ldtob_cdfFnopuxX
                   0x000c4c                  ___Genld_cdfFnopuxX
@@ -303,8 +303,8 @@ External Symbols in Program Memory (by address):
                   0x00116c                  __Puttxt
                   0x0012e4                  __Vacopy
                   0x0012e8                  __Dnorm
-                  0x001380                  ___eqdf2
                   0x001380                  ___ledf2
+                  0x001380                  ___eqdf2
                   0x001380                  ___ltdf2
                   0x00138a                  ___gedf2
                   0x00138a                  ___gtdf2
@@ -319,9 +319,9 @@ External Symbols in Program Memory (by address):
                   0x001570                  ___muldf3
                   0x00165c                  ___subdf3
                   0x001660                  ___umodsi3
-                  0x001666                  ___mulsi3
                   0x001666                  ___mulp32peds3
                   0x001666                  ___mulp32eds3
+                  0x001666                  ___mulsi3
                   0x0016be                  ___udivmoddi3
                   0x0017a4                  ___udivdi3
                   0x0017b2                  ___umoddi3
@@ -334,56 +334,46 @@ External Symbols in Program Memory (by address):
                   0x001a06                  __dunpack
                   0x001a54                  ___floatdidf
                   0x001a74                  ___floatundidf
-                  0x001bc8                  _logDisplayMessage
-                  0x001bdc                  _lcd_cmd
-                  0x001c2c                  _lcd_init
-                  0x001c62                  _lcd_setCursor
-                  0x001c7a                  _lcd_printChar
-                  0x001ccc                  _lcd_printStr
-                  0x001d66                  _initDisplay
-                  0x001da6                  _processDisplayMessages
-                  0x001e88                  _putVal
-                  0x001eb6                  _putVals
-                  0x001f14                  _getAvg
-                  0x001f82                  _getCount
-                  0x001f8a                  _getState
-                  0x001f92                  _setState
-                  0x001f9e                  _initBuffer
-                  0x001fc6                  _LogMotorMessage
-                  0x001fda                  _initMotor
-                  0x002032                  _motorOn
-                  0x00203a                  _motorOff
-                  0x002042                  _setMotorHigh
-                  0x00204c                  _setMotorLow
-                  0x002056                  _getMotorSpeed
-                  0x00205e                  _setMotorSpeed
-                  0x002082                  _pumpSet
-                  0x0020ba                  _processMotorMessages
-                  0x00218c                  _LogSensorMessage
-                  0x0021a0                  _setThresholds
-                  0x0021c8                  _getLowThreshold
-                  0x0021d0                  _getHighThreshold
-                  0x0021d8                  _initSensor
-                  0x002226                  _processSensorMessages
-                  0x00222e                  _LogMessage
-                  0x002242                  _initWaterSystem
-                  0x00229c                  _ProcessMessages
-                  0x0022c6                  build/default/production/serial.o:_Log
-                  0x0022e6                  _initSerial
-                  0x00230c                  _getLogger
-                  0x002314                  _processSerialMessages
-                  0x00231c                  _setup
-                  0x002334                  _main
-                  0x002346                  _Delay
-                  0x002364                  _wait_1mS
+                  0x001ba2                  _logDisplayMessage
+                  0x001bb6                  _lcd_cmd
+                  0x001c06                  _lcd_init
+                  0x001c3c                  _lcd_setCursor
+                  0x001c54                  _lcd_printChar
+                  0x001ca6                  _lcd_printStr
+                  0x001d40                  _initDisplay
+                  0x001d80                  _processDisplayMessages
+                  0x001e62                  _putVal
+                  0x001e90                  _getAvg
+                  0x001efe                  _getCount
+                  0x001f06                  _getState
+                  0x001f0e                  _setState
+                  0x001f1a                  _initBuffer
+                  0x001f42                  _LogMotorMessage
+                  0x001f56                  _initMotor
+                  0x001fae                  _pumpSet
+                  0x001fe6                  _processMotorMessages
+                  0x0020ba                  _LogMessage
+                  0x0020ce                  _initWaterSystem
+                  0x002128                  _ProcessMessages
+                  0x002152                  build/default/production/serial.o:_Log
+                  0x002172                  _initSerial
+                  0x002198                  _getLogger
+                  0x0021a0                  _processSerialMessages
+                  0x0021a8                  _LogSensorMessage
+                  0x0021bc                  _initSensor
+                  0x00220a                  _processSensorMessages
+                  0x002212                  _setup
+                  0x00222a                  _main
+                  0x00223c                  _Delay
+                  0x00225a                  _wait_1mS
 
 External Symbols in Program Memory (by name):
 
-                  0x002346                  _Delay
-                  0x00222e                  _LogMessage
-                  0x001fc6                  _LogMotorMessage
-                  0x00218c                  _LogSensorMessage
-                  0x00229c                  _ProcessMessages
+                  0x00223c                  _Delay
+                  0x0020ba                  _LogMessage
+                  0x001f42                  _LogMotorMessage
+                  0x0021a8                  _LogSensorMessage
+                  0x002128                  _ProcessMessages
                   0x0002d0                  __ADC1Interrupt
                   0x000322                  __DefaultInterrupt
                   0x0012e8                  __Dnorm
@@ -461,47 +451,37 @@ External Symbols in Program Memory (by name):
                   0x0005d4                  __sprintf_cdnopuxX
                   0x0005d4                  __sprintf_fF
                   0x000e54                  _div
-                  0x001f14                  _getAvg
-                  0x001f82                  _getCount
-                  0x0021d0                  _getHighThreshold
-                  0x00230c                  _getLogger
-                  0x0021c8                  _getLowThreshold
-                  0x002056                  _getMotorSpeed
-                  0x001f8a                  _getState
-                  0x001f9e                  _initBuffer
-                  0x001d66                  _initDisplay
-                  0x001fda                  _initMotor
-                  0x0021d8                  _initSensor
-                  0x0022e6                  _initSerial
-                  0x002242                  _initWaterSystem
-                  0x001bdc                  _lcd_cmd
-                  0x001c2c                  _lcd_init
-                  0x001c7a                  _lcd_printChar
-                  0x001ccc                  _lcd_printStr
-                  0x001c62                  _lcd_setCursor
+                  0x001e90                  _getAvg
+                  0x001efe                  _getCount
+                  0x002198                  _getLogger
+                  0x001f06                  _getState
+                  0x001f1a                  _initBuffer
+                  0x001d40                  _initDisplay
+                  0x001f56                  _initMotor
+                  0x0021bc                  _initSensor
+                  0x002172                  _initSerial
+                  0x0020ce                  _initWaterSystem
+                  0x001bb6                  _lcd_cmd
+                  0x001c06                  _lcd_init
+                  0x001c54                  _lcd_printChar
+                  0x001ca6                  _lcd_printStr
+                  0x001c3c                  _lcd_setCursor
                   0x000e6a                  _ldiv
-                  0x001bc8                  _logDisplayMessage
-                  0x002334                  _main
+                  0x001ba2                  _logDisplayMessage
+                  0x00222a                  _main
                   0x000e94                  _memcpy
-                  0x00203a                  _motorOff
-                  0x002032                  _motorOn
-                  0x001da6                  _processDisplayMessages
-                  0x0020ba                  _processMotorMessages
-                  0x002226                  _processSensorMessages
-                  0x002314                  _processSerialMessages
-                  0x002082                  _pumpSet
-                  0x001e88                  _putVal
-                  0x001eb6                  _putVals
-                  0x002042                  _setMotorHigh
-                  0x00204c                  _setMotorLow
-                  0x00205e                  _setMotorSpeed
-                  0x001f92                  _setState
-                  0x0021a0                  _setThresholds
-                  0x00231c                  _setup
+                  0x001d80                  _processDisplayMessages
+                  0x001fe6                  _processMotorMessages
+                  0x00220a                  _processSensorMessages
+                  0x0021a0                  _processSerialMessages
+                  0x001fae                  _pumpSet
+                  0x001e62                  _putVal
+                  0x001f0e                  _setState
+                  0x002212                  _setup
                   0x000ea2                  _strchr
                   0x0005ba                  _strlen
-                  0x002364                  _wait_1mS
-                  0x0022c6                  build/default/production/serial.o:_Log
+                  0x00225a                  _wait_1mS
+                  0x002152                  build/default/production/serial.o:_Log
                   0x0005c6                  sprintf_cdfFnopuxX.XXeo:_prout
 
 Memory Configuration
@@ -750,63 +730,63 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x352c
+.debug_info       0x000000       0x323a
  *(.debug_info)
  .debug_info      0x000000        0x2e5 build/default/production/main.o
- .debug_info      0x0002e5        0xc4f build/default/production/sensor.o
- .debug_info      0x000f34        0xbeb build/default/production/motor.o
- .debug_info      0x001b1f        0xbba build/default/production/display.o
- .debug_info      0x0026d9        0x72b build/default/production/serial.o
- .debug_info      0x002e04        0x23c build/default/production/watersystem.o
- .debug_info      0x003040        0x314 build/default/production/buffer.o
- .debug_info      0x003354         0x86 build/default/production/support.o
- .debug_info      0x0033da        0x152 build/default/production/time.o
+ .debug_info      0x0002e5        0xba3 build/default/production/sensor.o
+ .debug_info      0x000e88        0x9db build/default/production/motor.o
+ .debug_info      0x001863        0xbba build/default/production/display.o
+ .debug_info      0x00241d        0x72b build/default/production/serial.o
+ .debug_info      0x002b48        0x23c build/default/production/watersystem.o
+ .debug_info      0x002d84        0x2de build/default/production/buffer.o
+ .debug_info      0x003062         0x86 build/default/production/support.o
+ .debug_info      0x0030e8        0x152 build/default/production/time.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x96c
+.debug_abbrev     0x000000        0x912
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0xdc build/default/production/main.o
- .debug_abbrev    0x0000dc        0x199 build/default/production/sensor.o
- .debug_abbrev    0x000275        0x1c2 build/default/production/motor.o
- .debug_abbrev    0x000437        0x1b1 build/default/production/display.o
- .debug_abbrev    0x0005e8        0x127 build/default/production/serial.o
- .debug_abbrev    0x00070f         0xe5 build/default/production/watersystem.o
- .debug_abbrev    0x0007f4        0x112 build/default/production/buffer.o
- .debug_abbrev    0x000906         0x14 build/default/production/support.o
- .debug_abbrev    0x00091a         0x52 build/default/production/time.o
+ .debug_abbrev    0x0000dc        0x189 build/default/production/sensor.o
+ .debug_abbrev    0x000265        0x181 build/default/production/motor.o
+ .debug_abbrev    0x0003e6        0x1b1 build/default/production/display.o
+ .debug_abbrev    0x000597        0x127 build/default/production/serial.o
+ .debug_abbrev    0x0006be         0xe5 build/default/production/watersystem.o
+ .debug_abbrev    0x0007a3        0x109 build/default/production/buffer.o
+ .debug_abbrev    0x0008ac         0x14 build/default/production/support.o
+ .debug_abbrev    0x0008c0         0x52 build/default/production/time.o
 
-.debug_line       0x000000        0x75f
+.debug_line       0x000000        0x719
  *(.debug_line)
  .debug_line      0x000000         0xf1 build/default/production/main.o
- .debug_line      0x0000f1        0x137 build/default/production/sensor.o
- .debug_line      0x000228        0x151 build/default/production/motor.o
- .debug_line      0x000379        0x195 build/default/production/display.o
- .debug_line      0x00050e        0x10d build/default/production/serial.o
- .debug_line      0x00061b         0x63 build/default/production/watersystem.o
- .debug_line      0x00067e         0x71 build/default/production/buffer.o
- .debug_line      0x0006ef         0x38 build/default/production/support.o
- .debug_line      0x000727         0x38 build/default/production/time.o
+ .debug_line      0x0000f1        0x121 build/default/production/sensor.o
+ .debug_line      0x000212        0x12f build/default/production/motor.o
+ .debug_line      0x000341        0x193 build/default/production/display.o
+ .debug_line      0x0004d4        0x10d build/default/production/serial.o
+ .debug_line      0x0005e1         0x63 build/default/production/watersystem.o
+ .debug_line      0x000644         0x65 build/default/production/buffer.o
+ .debug_line      0x0006a9         0x38 build/default/production/support.o
+ .debug_line      0x0006e1         0x38 build/default/production/time.o
 
-.debug_frame      0x000000        0x5e4
+.debug_frame      0x000000        0x4be
  *(.debug_frame)
  .debug_frame     0x000000         0x4c build/default/production/main.o
- .debug_frame     0x00004c        0x10e build/default/production/sensor.o
- .debug_frame     0x00015a        0x148 build/default/production/motor.o
- .debug_frame     0x0002a2        0x124 build/default/production/display.o
- .debug_frame     0x0003c6         0xa0 build/default/production/serial.o
- .debug_frame     0x000466         0x76 build/default/production/watersystem.o
- .debug_frame     0x0004dc         0xd8 build/default/production/buffer.o
- .debug_frame     0x0005b4         0x30 build/default/production/time.o
+ .debug_frame     0x00004c         0xac build/default/production/sensor.o
+ .debug_frame     0x0000f8         0xa0 build/default/production/motor.o
+ .debug_frame     0x000198        0x124 build/default/production/display.o
+ .debug_frame     0x0002bc         0xa0 build/default/production/serial.o
+ .debug_frame     0x00035c         0x76 build/default/production/watersystem.o
+ .debug_frame     0x0003d2         0xbc build/default/production/buffer.o
+ .debug_frame     0x00048e         0x30 build/default/production/time.o
 
-.debug_str        0x000000        0x164
+.debug_str        0x000000        0x135
  *(.debug_str)
  .debug_str       0x000000          0xb build/default/production/main.o
- .debug_str       0x00000b         0x72 build/default/production/sensor.o
- .debug_str       0x00007d         0x52 build/default/production/motor.o
- .debug_str       0x0000cf         0x4b build/default/production/display.o
- .debug_str       0x00011a         0x1c build/default/production/serial.o
- .debug_str       0x000136          0xf build/default/production/watersystem.o
- .debug_str       0x000145         0x1f build/default/production/buffer.o
+ .debug_str       0x00000b         0x57 build/default/production/sensor.o
+ .debug_str       0x000062         0x3e build/default/production/motor.o
+ .debug_str       0x0000a0         0x4b build/default/production/display.o
+ .debug_str       0x0000eb         0x1c build/default/production/serial.o
+ .debug_str       0x000107          0xf build/default/production/watersystem.o
+ .debug_str       0x000116         0x1f build/default/production/buffer.o
 
 .debug_loc
  *(.debug_loc)
@@ -815,24 +795,24 @@ __CONFIG1
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0x410
+                  0x000000        0x36b
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x25 build/default/production/main.o
  .debug_pubnames
-                  0x000025         0xd2 build/default/production/sensor.o
+                  0x000025         0x97 build/default/production/sensor.o
  .debug_pubnames
-                  0x0000f7         0xf5 build/default/production/motor.o
+                  0x0000bc         0x97 build/default/production/motor.o
  .debug_pubnames
-                  0x0001ec         0xc4 build/default/production/display.o
+                  0x000153         0xc4 build/default/production/display.o
  .debug_pubnames
-                  0x0002b0         0x49 build/default/production/serial.o
+                  0x000217         0x49 build/default/production/serial.o
  .debug_pubnames
-                  0x0002f9         0x5c build/default/production/watersystem.o
+                  0x000260         0x5c build/default/production/watersystem.o
  .debug_pubnames
-                  0x000355         0x9f build/default/production/buffer.o
+                  0x0002bc         0x93 build/default/production/buffer.o
  .debug_pubnames
-                  0x0003f4         0x1c build/default/production/time.o
+                  0x00034f         0x1c build/default/production/time.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -1444,144 +1424,144 @@ LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
-                  0x0000d8        0x3cf
+                  0x0000d8        0x3b2
  .debug_pubtypes
                   0x0000d8         0x40 build/default/production/main.o
  .debug_pubtypes
                   0x000118         0xf6 build/default/production/sensor.o
  .debug_pubtypes
-                  0x00020e         0xea build/default/production/motor.o
+                  0x00020e         0xcd build/default/production/motor.o
  .debug_pubtypes
-                  0x0002f8         0xee build/default/production/display.o
+                  0x0002db         0xee build/default/production/display.o
  .debug_pubtypes
-                  0x0003e6         0x78 build/default/production/serial.o
+                  0x0003c9         0x78 build/default/production/serial.o
  .debug_pubtypes
-                  0x00045e         0x25 build/default/production/watersystem.o
+                  0x000441         0x25 build/default/production/watersystem.o
  .debug_pubtypes
-                  0x000483         0x12 build/default/production/buffer.o
+                  0x000466         0x12 build/default/production/buffer.o
  .debug_pubtypes
-                  0x000495         0x12 build/default/production/time.o
+                  0x000478         0x12 build/default/production/time.o
 
 __c30_signature
-                  0x0004a7        0x162
+                  0x00048a        0x162
  __c30_signature
-                  0x0004a7          0x6 build/default/production/main.o
+                  0x00048a          0x6 build/default/production/main.o
  __c30_signature
-                  0x0004ad          0x6 build/default/production/sensor.o
+                  0x000490          0x6 build/default/production/sensor.o
  __c30_signature
-                  0x0004b3          0x6 build/default/production/motor.o
+                  0x000496          0x6 build/default/production/motor.o
  __c30_signature
-                  0x0004b9          0x6 build/default/production/display.o
+                  0x00049c          0x6 build/default/production/display.o
  __c30_signature
-                  0x0004bf          0x6 build/default/production/serial.o
+                  0x0004a2          0x6 build/default/production/serial.o
  __c30_signature
-                  0x0004c5          0x6 build/default/production/watersystem.o
+                  0x0004a8          0x6 build/default/production/watersystem.o
  __c30_signature
-                  0x0004cb          0x6 build/default/production/buffer.o
+                  0x0004ae          0x6 build/default/production/buffer.o
  __c30_signature
-                  0x0004d1          0x6 build/default/production/time.o
+                  0x0004b4          0x6 build/default/production/time.o
  __c30_signature
-                  0x0004d7          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
+                  0x0004ba          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x0004dd          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
+                  0x0004c0          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
  __c30_signature
-                  0x0004e3          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(divsf3.eo)
+                  0x0004c6          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(divsf3.eo)
  __c30_signature
-                  0x0004e9          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(divsi3.eo)
+                  0x0004cc          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(divsi3.eo)
  __c30_signature
-                  0x0004ef          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(feqltle.eo)
+                  0x0004d2          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(feqltle.eo)
  __c30_signature
-                  0x0004f5          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(fgtge.eo)
+                  0x0004d8          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(fgtge.eo)
  __c30_signature
-                  0x0004fb          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(floatsisf.eo)
+                  0x0004de          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(floatsisf.eo)
  __c30_signature
-                  0x000501          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(fpack.eo)
+                  0x0004e4          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(fpack.eo)
  __c30_signature
-                  0x000507          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(funpack2.eo)
+                  0x0004ea          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(funpack2.eo)
  __c30_signature
-                  0x00050d          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(futil.eo)
+                  0x0004f0          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(futil.eo)
  __c30_signature
-                  0x000513          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(mulsf3.eo)
+                  0x0004f6          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(mulsf3.eo)
  __c30_signature
-                  0x000519          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(udivsi3.eo)
+                  0x0004fc          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(udivsi3.eo)
  __c30_signature
-                  0x00051f          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(fcompare.eo)
+                  0x000502          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(fcompare.eo)
  __c30_signature
-                  0x000525          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(floatdisf.eo)
+                  0x000508          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(floatdisf.eo)
  __c30_signature
-                  0x00052b          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(floatundisf.eo)
+                  0x00050e          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(floatundisf.eo)
  __c30_signature
-                  0x000531          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(funpack.eo)
+                  0x000514          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(funpack.eo)
  __c30_signature
-                  0x000537          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(strlen.XX_eo)
+                  0x00051a          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(strlen.XX_eo)
  __c30_signature
-                  0x00053d          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(sprintf_cdfFnopuxX.XXeo)
+                  0x000520          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(sprintf_cdfFnopuxX.XXeo)
  __c30_signature
-                  0x000543          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xprintf_cdfFnopuxX.XXeo)
+                  0x000526          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xprintf_cdfFnopuxX.XXeo)
  __c30_signature
-                  0x000549          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xputfld_cdfFnopuxX.XXeo)
+                  0x00052c          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xputfld_cdfFnopuxX.XXeo)
  __c30_signature
-                  0x00054f          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xldtob_cdfFnopuxX.XXeo)
+                  0x000532          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xldtob_cdfFnopuxX.XXeo)
  __c30_signature
-                  0x000555          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xgenld_cdfFnopuxX.XXeo)
+                  0x000538          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xgenld_cdfFnopuxX.XXeo)
  __c30_signature
-                  0x00055b          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(div.XX_eo)
+                  0x00053e          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(div.XX_eo)
  __c30_signature
-                  0x000561          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(ldiv.XX_eo)
+                  0x000544          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(ldiv.XX_eo)
  __c30_signature
-                  0x000567          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(memcpy.XX_eo)
+                  0x00054a          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(memcpy.XX_eo)
  __c30_signature
-                  0x00056d          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(strchr.XX_eo)
+                  0x000550          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(strchr.XX_eo)
  __c30_signature
-                  0x000573          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xldunsca.XX_eo)
+                  0x000556          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xldunsca.XX_eo)
  __c30_signature
-                  0x000579          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xlitob.XX_eo)
+                  0x00055c          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xlitob.XX_eo)
  __c30_signature
-                  0x00057f          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xputtxt.XX_eo)
+                  0x000562          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xputtxt.XX_eo)
  __c30_signature
-                  0x000585          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xvacopy.XX_eo)
+                  0x000568          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xvacopy.XX_eo)
  __c30_signature
-                  0x00058b          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xdnorm.XX_elo)
+                  0x00056e          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\liblega-c-elf.a(xdnorm.XX_elo)
  __c30_signature
-                  0x000591          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(deqltle.eo)
+                  0x000574          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(deqltle.eo)
  __c30_signature
-                  0x000597          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(dgtge.eo)
+                  0x00057a          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(dgtge.eo)
  __c30_signature
-                  0x00059d          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(divdf3.eo)
+                  0x000580          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(divdf3.eo)
  __c30_signature
-                  0x0005a3          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(dpack.eo)
+                  0x000586          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(dpack.eo)
  __c30_signature
-                  0x0005a9          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(dunpack2.eo)
+                  0x00058c          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(dunpack2.eo)
  __c30_signature
-                  0x0005af          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(extendsfdf.eo)
+                  0x000592          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(extendsfdf.eo)
  __c30_signature
-                  0x0005b5          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(fixdfsi.eo)
+                  0x000598          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(fixdfsi.eo)
  __c30_signature
-                  0x0005bb          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(floatsidf.eo)
+                  0x00059e          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(floatsidf.eo)
  __c30_signature
-                  0x0005c1          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(muldf3.eo)
+                  0x0005a4          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(muldf3.eo)
  __c30_signature
-                  0x0005c7          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(subdf3.eo)
+                  0x0005aa          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(subdf3.eo)
  __c30_signature
-                  0x0005cd          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(umodsi3.eo)
+                  0x0005b0          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(umodsi3.eo)
  __c30_signature
-                  0x0005d3          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(mulsi3.eo)
+                  0x0005b6          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(mulsi3.eo)
  __c30_signature
-                  0x0005d9          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
+                  0x0005bc          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
  __c30_signature
-                  0x0005df          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(adddf3.eo)
+                  0x0005c2          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(adddf3.eo)
  __c30_signature
-                  0x0005e5          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(dcompare.eo)
+                  0x0005c8          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(dcompare.eo)
  __c30_signature
-                  0x0005eb          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(dpropagateNaN.eo)
+                  0x0005ce          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(dpropagateNaN.eo)
  __c30_signature
-                  0x0005f1          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(dtype.eo)
+                  0x0005d4          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(dtype.eo)
  __c30_signature
-                  0x0005f7          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(dunpack.eo)
+                  0x0005da          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(dunpack.eo)
  __c30_signature
-                  0x0005fd          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(floatdidf.eo)
+                  0x0005e0          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(floatdidf.eo)
  __c30_signature
-                  0x000603          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(floatundidf.eo)
+                  0x0005e6          0x6 c:/program files (x86)/microchip/xc16/v1.40/bin/bin/../../lib\libm-elf.a(floatundidf.eo)
 
 .nbss               0x0800          0x6
  .nbss              0x0800          0x6 build/default/production/buffer.o
@@ -1643,66 +1623,55 @@ __c30_signature
  .ivt._T2Interrupt
                   0x000022          0x2 build/default/production/display.o
 
-.const              0x9aca         0xfe load address 0x001aca  
+.const              0x9aca         0xd8 load address 0x001aca  
  .const             0x9aca         0x8c build/default/production/watersystem.o
  .const             0x9b56         0x2e build/default/production/serial.o
- .const             0x9b84         0x26 build/default/production/sensor.o
- .const             0x9baa         0x1e build/default/production/display.o
+ .const             0x9b84         0x1e build/default/production/display.o
 
-.text             0x001bc8        0x50c
- .text            0x001bc8        0x2c0 build/default/production/display.o
-                  0x001bc8                  _logDisplayMessage
-                  0x001bdc                  _lcd_cmd
-                  0x001c2c                  _lcd_init
-                  0x001c62                  _lcd_setCursor
-                  0x001c7a                  _lcd_printChar
-                  0x001ccc                  _lcd_printStr
-                  0x001d66                  _initDisplay
-                  0x001da6                  _processDisplayMessages
- .text            0x001e88        0x13e build/default/production/buffer.o
-                  0x001e88                  _putVal
-                  0x001eb6                  _putVals
-                  0x001f14                  _getAvg
-                  0x001f82                  _getCount
-                  0x001f8a                  _getState
-                  0x001f92                  _setState
-                  0x001f9e                  _initBuffer
- .text            0x001fc6        0x10e build/default/production/motor.o
-                  0x001fc6                  _LogMotorMessage
-                  0x001fda                  _initMotor
-                  0x002032                  _motorOn
-                  0x00203a                  _motorOff
-                  0x002042                  _setMotorHigh
-                  0x00204c                  _setMotorLow
-                  0x002056                  _getMotorSpeed
-                  0x00205e                  _setMotorSpeed
-                  0x002082                  _pumpSet
-                  0x0020ba                  _processMotorMessages
+.text             0x001ba2        0x460
+ .text            0x001ba2        0x2c0 build/default/production/display.o
+                  0x001ba2                  _logDisplayMessage
+                  0x001bb6                  _lcd_cmd
+                  0x001c06                  _lcd_init
+                  0x001c3c                  _lcd_setCursor
+                  0x001c54                  _lcd_printChar
+                  0x001ca6                  _lcd_printStr
+                  0x001d40                  _initDisplay
+                  0x001d80                  _processDisplayMessages
+ .text            0x001e62         0xe0 build/default/production/buffer.o
+                  0x001e62                  _putVal
+                  0x001e90                  _getAvg
+                  0x001efe                  _getCount
+                  0x001f06                  _getState
+                  0x001f0e                  _setState
+                  0x001f1a                  _initBuffer
+ .text            0x001f42         0xc0 build/default/production/motor.o
+                  0x001f42                  _LogMotorMessage
+                  0x001f56                  _initMotor
+                  0x001fae                  _pumpSet
+                  0x001fe6                  _processMotorMessages
 
-.dinit            0x0020d4         0xb8
- .dinit           0x0020d4         0xb8 data_init
+.dinit            0x002002         0xb8
+ .dinit           0x002002         0xb8 data_init
 
-.text             0x00218c        0x1de
- .text            0x00218c         0xa2 build/default/production/sensor.o
-                  0x00218c                  _LogSensorMessage
-                  0x0021a0                  _setThresholds
-                  0x0021c8                  _getLowThreshold
-                  0x0021d0                  _getHighThreshold
-                  0x0021d8                  _initSensor
-                  0x002226                  _processSensorMessages
- .text            0x00222e         0x7e build/default/production/watersystem.o
-                  0x00222e                  _LogMessage
-                  0x002242                  _initWaterSystem
-                  0x00229c                  _ProcessMessages
- .text            0x0022ac         0x70 build/default/production/serial.o
-                  0x0022c6                  build/default/production/serial.o:_Log
-                  0x0022e6                  _initSerial
-                  0x00230c                  _getLogger
-                  0x002314                  _processSerialMessages
- .text            0x00231c         0x2a build/default/production/main.o
-                  0x00231c                  _setup
-                  0x002334                  _main
- .text            0x002346         0x1e build/default/production/time.o
-                  0x002346                  _Delay
- .text            0x002364          0x6 build/default/production/support.o
-                  0x002364                  _wait_1mS
+.text             0x0020ba        0x1a6
+ .text            0x0020ba         0x7e build/default/production/watersystem.o
+                  0x0020ba                  _LogMessage
+                  0x0020ce                  _initWaterSystem
+                  0x002128                  _ProcessMessages
+ .text            0x002138         0x70 build/default/production/serial.o
+                  0x002152                  build/default/production/serial.o:_Log
+                  0x002172                  _initSerial
+                  0x002198                  _getLogger
+                  0x0021a0                  _processSerialMessages
+ .text            0x0021a8         0x6a build/default/production/sensor.o
+                  0x0021a8                  _LogSensorMessage
+                  0x0021bc                  _initSensor
+                  0x00220a                  _processSensorMessages
+ .text            0x002212         0x2a build/default/production/main.o
+                  0x002212                  _setup
+                  0x00222a                  _main
+ .text            0x00223c         0x1e build/default/production/time.o
+                  0x00223c                  _Delay
+ .text            0x00225a          0x6 build/default/production/support.o
+                  0x00225a                  _wait_1mS

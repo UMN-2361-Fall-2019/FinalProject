@@ -10,7 +10,9 @@
 #include "defs.h"
 #include "buffer.h"
 
+/** \brief	The low threshold */
 int lowThreshold = 6;
+/** \brief	The high t hreshold */
 int highTHreshold = 9;
 
 loggerCallback sensorLogger = NULL;
@@ -50,58 +52,6 @@ void __attribute__((__interrupt__, __auto_psv__)) _ADC1Interrupt(void) {
  
 }
 
-// Public Functions
-
-/**
- * \fn	void setThresholds(int low, int high)
- *
- * \brief	Sets the thresholds
- *
- * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
- * \date	12/1/2019
- *
- * \param	low 	The low.
- * \param	high	The high.
- */
-
-void setThresholds(int low, int high){
-    char output[50];
-    lowThreshold = low;
-    highTHreshold = high;
-    
-    sprintf(output, "Sensor: Setting thresholds: %d to %d", low, high);
-    LogSensorMessage(output);
-}
-
-/**
- * \fn	int getLowThreshold()
- *
- * \brief	Gets low threshold
- *
- * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
- * \date	12/1/2019
- *
- * \return	The low threshold.
- */
-
-int getLowThreshold(){
-    return lowThreshold;
-}
-
-/**
- * \fn	int getHighThreshold()
- *
- * \brief	Gets high threshold
- *
- * \author	Tyler Krussow, Alex Lema, Darnell Otterson, and Jacob Wenthe
- * \date	12/1/2019
- *
- * \return	The high threshold.
- */
-
-int getHighThreshold(){
-    return highTHreshold;
-}
 
 /**
  * \fn	int initSensor(loggerCallback logger)
@@ -132,17 +82,6 @@ int initSensor(loggerCallback logger){
     AD1CON3bits.ADCS = 1;
     AD1CON3bits.ADRC = 0;
     AD1CON3bits.SAMC = 2;
-    /*
-    AD1CON2 = 0;
-    AD1CON2bits.CSCNA = 0; // turn on scan
-    AD1CON2bits.SMPI = 0; // interrupt after 8 conversions
-    AD1CON2bits.BUFM = 0;  // two 8-word buffers
-
-    AD1CON3bits.ADCS = 1; // Tad = 2*Tcy = 125ns
-    AD1CON3bits.ADRC = 0;
-    AD1CON3bits.SAMC = 2; // sample time = 125ns
- 
-     */
     
     AD1CON1bits.ADON = 1; // turn on module
     
